@@ -128,6 +128,13 @@ export default class Users extends Component {
           onChange={this.handleSearchUser}
         />{" "}
         <br /> <br />
+        <div id="pageNo">
+            <select name="" id="">
+                <option value="">5</option>
+                <option value="">10</option>
+                <option value="">20</option>
+            </select>
+        </div>
         <table border="1">
           <thead>
             <tr>

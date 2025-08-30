@@ -6,3 +6,8 @@ li{
   padding: 5px;
   cursor: pointer;
 }
+#pageNo{
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
+}
