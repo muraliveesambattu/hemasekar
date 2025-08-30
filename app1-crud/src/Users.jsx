@@ -12,43 +12,7 @@ export default class Users extends Component {
         role: "",
       },
       editIndex: "",
-      users: [
-        {
-          id: 6,
-          name: "Frank Thomas",
-          email: "frank.thomas@example.com",
-          age: 32,
-          role: "DevOps",
-        },
-        {
-          id: 7,
-          name: "Grace Lee",
-          email: "grace.lee@example.com",
-          age: 29,
-          role: "Business Analyst",
-        },
-        {
-          id: 8,
-          name: "Henry Adams",
-          email: "henry.adams@example.com",
-          age: 27,
-          role: "Developer",
-        },
-        {
-          id: 9,
-          name: "Ivy Martinez",
-          email: "ivy.martinez@example.com",
-          age: 31,
-          role: "Scrum Master",
-        },
-        {
-          id: 10,
-          name: "Jack Wilson",
-          email: "jack.wilson@example.com",
-          age: 24,
-          role: "Intern",
-        },
-      ],
+      users: tempUsers,
     };
   }
   handleChange = (e) => {
@@ -61,7 +25,7 @@ export default class Users extends Component {
     const newUsers = [...this.state.users];
     newUsers[this.state.editIndex] = this.state.user;
     this.setState({ users: newUsers, editIndex: "" });
-    this.handleReset()
+    this.handleReset();
   };
   handleDelete = (usr) => {
     console.log(usr);
@@ -89,6 +53,18 @@ export default class Users extends Component {
     newUsers.push(this.state.user);
     this.setState({ users: newUsers });
     this.handleReset();
+  };
+
+  handleSearchUser = (e) => {
+    console.log(e.target.value);
+    if (e.target.value.length > 0) {
+      const newUsers = this.state.users.filter((usr) => {
+        return usr.name.indexOf(e.target.value) > -1;
+      });
+      this.setState({ users: newUsers });
+    } else {
+      this.setState({ users: tempUsers });
+    }
   };
 
   render() {
@@ -143,7 +119,15 @@ export default class Users extends Component {
             </button>
           )}
         </form>
-
+        <hr />
+        <input
+          type="text"
+          name=""
+          id=""
+          placeholder="Search User ..."
+          onChange={this.handleSearchUser}
+        />{" "}
+        <br /> <br />
         <table border="1">
           <thead>
             <tr>
@@ -188,7 +172,192 @@ export default class Users extends Component {
             })}
           </tbody>
         </table>
+        <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+        </ul>
       </div>
     );
   }
 }
+
+const tempUsers = [
+  {
+    id: 6,
+    name: "Frank Thomas",
+    email: "frank.thomas@example.com",
+    age: 32,
+    role: "DevOps",
+  },
+  {
+    id: 7,
+    name: "Grace Lee",
+    email: "grace.lee@example.com",
+    age: 29,
+    role: "Business Analyst",
+  },
+  {
+    id: 8,
+    name: "Henry Adams",
+    email: "henry.adams@example.com",
+    age: 27,
+    role: "Developer",
+  },
+  {
+    id: 9,
+    name: "Ivy Martinez",
+    email: "ivy.martinez@example.com",
+    age: 31,
+    role: "Scrum Master",
+  },
+  {
+    id: 10,
+    name: "Jack Wilson",
+    email: "jack.wilson@example.com",
+    age: 24,
+    role: "Intern",
+  },
+  {
+    id: 11,
+    name: "Karen Brown",
+    email: "karen.brown@example.com",
+    age: 35,
+    role: "Project Manager",
+  },
+  {
+    id: 12,
+    name: "Leo Carter",
+    email: "leo.carter@example.com",
+    age: 28,
+    role: "Developer",
+  },
+  {
+    id: 13,
+    name: "Mia Scott",
+    email: "mia.scott@example.com",
+    age: 26,
+    role: "UI/UX Designer",
+  },
+  {
+    id: 14,
+    name: "Nathan Perez",
+    email: "nathan.perez@example.com",
+    age: 33,
+    role: "QA Engineer",
+  },
+  {
+    id: 15,
+    name: "Olivia Johnson",
+    email: "olivia.johnson@example.com",
+    age: 30,
+    role: "Data Scientist",
+  },
+  {
+    id: 16,
+    name: "Paul Walker",
+    email: "paul.walker@example.com",
+    age: 27,
+    role: "Developer",
+  },
+  {
+    id: 17,
+    name: "Quinn Harris",
+    email: "quinn.harris@example.com",
+    age: 29,
+    role: "Business Analyst",
+  },
+  {
+    id: 18,
+    name: "Rachel Lewis",
+    email: "rachel.lewis@example.com",
+    age: 34,
+    role: "HR Manager",
+  },
+  {
+    id: 19,
+    name: "Samuel Young",
+    email: "samuel.young@example.com",
+    age: 28,
+    role: "DevOps",
+  },
+  {
+    id: 20,
+    name: "Tina King",
+    email: "tina.king@example.com",
+    age: 25,
+    role: "Developer",
+  },
+  {
+    id: 21,
+    name: "Uma Davis",
+    email: "uma.davis@example.com",
+    age: 31,
+    role: "Scrum Master",
+  },
+  {
+    id: 22,
+    name: "Victor Clark",
+    email: "victor.clark@example.com",
+    age: 36,
+    role: "Tech Lead",
+  },
+  {
+    id: 23,
+    name: "Wendy Hall",
+    email: "wendy.hall@example.com",
+    age: 29,
+    role: "QA Engineer",
+  },
+  {
+    id: 24,
+    name: "Xavier Allen",
+    email: "xavier.allen@example.com",
+    age: 32,
+    role: "Developer",
+  },
+  {
+    id: 25,
+    name: "Yara Gonzalez",
+    email: "yara.gonzalez@example.com",
+    age: 27,
+    role: "Data Analyst",
+  },
+  {
+    id: 26,
+    name: "Zachary Baker",
+    email: "zachary.baker@example.com",
+    age: 30,
+    role: "DevOps",
+  },
+  {
+    id: 27,
+    name: "Amelia Moore",
+    email: "amelia.moore@example.com",
+    age: 28,
+    role: "Frontend Developer",
+  },
+  {
+    id: 28,
+    name: "Brian Reed",
+    email: "brian.reed@example.com",
+    age: 35,
+    role: "Backend Developer",
+  },
+  {
+    id: 29,
+    name: "Chloe Turner",
+    email: "chloe.turner@example.com",
+    age: 26,
+    role: "Intern",
+  },
+  {
+    id: 30,
+    name: "Daniel Evans",
+    email: "daniel.evans@example.com",
+    age: 33,
+    role: "Fullstack Developer",
+  },
+];
+
